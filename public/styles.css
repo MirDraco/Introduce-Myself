@@ -2,7 +2,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #2d2d2d;
+    background-color: #1d1d1d;
     color: white;
 }
 
@@ -13,62 +13,182 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #2d2d2d;
+    background-color: #1d1d1d;
 }
 
-/* 페이지 양쪽 분할 */
+/* 페이지 왼쪽 분할 */
 #screen-left{
     width: 50%;
     height: 100%;
     float: left;
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    position: relative;
     text-align: center;
 }
 
-#screen-right{
-    width: 50%;
-    height: 100%;
-    float: right;
-    margin: 0;
+/* 완쪽 프로필 이름 */
+.text-container{
+    position: absolute;
+    top: 40%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    width: 100%;
 }
 
-/* 완쪽 프로필 이름 */
 #my-name{
-    font-size: 50px;
-    margin: 0;
+    font-size: 60px;
+    margin: 15px 0;
     padding: 0;
     font-weight: bold;
     color: white;
 }
 
 #my-title{
-    font-size: 30px;
-    margin: 0;
+    font-size: 36px;
+    margin: 12px 0;
     padding: 0;
     font-weight: bold;
     color: white;
 }
 
 #third-row{
-    font-size: 25px;
+    font-size: 30px;
     font-weight: bold;
-    margin: 0;
+    margin: 12px 0;
     padding: 0;
     color: white;
 }
 
-/*copyright footer */
-footer {
+/* 페이지 오른쪽 분할 */
+#screen-right{
+    width: 50%;
+    height: 100%;
+    float: right;
+    margin: 0;
+    position: relative;
+}
+
+/* 오른쪽 이미지 스타일 */
+#my-image{
+    filter: brightness(0.95);
+    max-width: 60%;
+    max-height: 60%;
+    object-fit: contain;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+}
+
+/* 푸터 스타일 */
+#footer{
+    position: absolute;
+    bottom: 10px;
     width: 100%;
-    height: 40px;
-    font-size: small;
-    background-color: #2c2c2c;
     text-align: center;
-    position: fixed;
-    bottom: 0;
-    left: 0;
+}
+
+#copyright{
+    color: white;
+    margin: 0;
+    font-size: 12px;
+}
+
+/* 연락처 정보 스타일 */
+/* 소셜 미디어 아이콘 스타일 */
+.social-icons {
+    position: absolute;
+    bottom: 160px;
+    left: 35%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+/* 연락처 정보 스타일 */
+.contact-info {
+    position: absolute;
+    bottom: 80px;
+    left: 35%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 100%;
+}
+
+.contact-info p {
+    margin: 0;
+    font-size: 16px;
+    color: #cccccc;
+}
+
+.contact-info a {
+    color: #4a9eff;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    color: #66b3ff;
+    text-decoration: underline;
+}
+.social-icons a {
+    color: #cccccc;
+    font-size: 32px;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    transform: translateY(-3px);
+}
+
+.social-icons a[href*="github"]:hover {
+    color: #ffffff;
+}
+
+.social-icons a[href*="twitter"]:hover {
+    color: #1da1f2;
+}
+
+.social-icons a[href*="discord"]:hover {
+    color: #7289da;
+}
+
+
+/* 버튼 컨테이너 스타일 */
+#button-holder {
+    position: absolute;
+    top: 60%;
+    left: 35%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 10;
+}
+
+/* 버튼 스타일 */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: transparent;
+    border: 2px solid #FEF889;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #FEF889;
+    color: #1b1b1b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(74, 158, 255, 0.3);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(74, 158, 255, 0.3);
 }

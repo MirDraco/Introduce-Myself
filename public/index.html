@@ -7,20 +7,48 @@
     <meta name="description" content="Mir's personal website">
     <title>Mir</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="image/icon.png" type="image/x-icon">
+    <link rel="icon" href="image/icon.PNG" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
+        <!-- 왼쪽 화면 -->
         <div id="screen-left">
-            <h2 id="my-title">Software Engineer</h2>
-            <h1 id="my-name">Mir</h1> 
-            <p id="third-row">세상은 넓고 드래곤은 많다</p>
+            <div class="text-container">
+                <h2 id="my-title">Software Engineer</h2>
+                <h1 id="my-name">Mir</h1>
+                <p id="third-row">세상은 넓고 드래곤은 많다</p>
+            </div>
+        <!--버튼 추가하는 곳-->
+        <div id="button-holder">
+            <a href="whoami.html" class="btn">나를 소개합니다</a>
         </div>
-        <div id="screen-right"></div>
 
+            <!--소셜 미디어 표시하는 곳-->
+            <div class="social-icons">
+                <a href="https://github.com/MirDraco" target="_blank" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://x.com/Mir__Draco" target="_blank" title="Twitter/X">
+                    <i class="fab fa-x-twitter"></i>
+                </a>
+                <a href="https://discord.com/users/904740301325893664" target="_blank" title="Discord">
+                    <i class="fab fa-discord"></i>
+                </a>
+            </div>
+            <div class="contact-info">
+                <p id="contact-info">Email: furrymir09875@gmail.com</p>
+                <p id="contact-info">Location: South Korea</p>
+            </div>
+        </div>
+
+        <!-- 오른쪽 화면 -->
+        <div id="screen-right">
+            <img id="my-image" src="image/index-image.PNG" alt="my OC Image">
+        </div>
+        <footer id="footer">
+            <p id="copyright">Copyright ⓒ 2025 Mir All rights reserved.</p>
+        </footer>
     </div>
 </body>
-<footer>
-    <p id="copyright">Copyright ⓒ 2025 Mir All rights reserved.</p>
-</footer>
 </html>
