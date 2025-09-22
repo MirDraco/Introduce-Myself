@@ -1,3 +1,6 @@
+*{
+    font-family: 'Inter',sans-serif;
+}
 /* body 기본 여백 제거 */
 body {
     margin: 0;
@@ -132,9 +135,11 @@ body {
 /* 푸터 스타일 */
 #footer{
     position: absolute;
-    bottom: 10px;
+    bottom: 0px;
     width: 100%;
     text-align: center;
+    background-color: rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
 }
 
 #copyright{

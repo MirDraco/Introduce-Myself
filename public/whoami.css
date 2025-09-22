@@ -1,4 +1,44 @@
 /* whoami.html 전용 스타일 */
+*{
+    font-family: 'Inter', sans-serif;
+}
+/* 모든 링크 밑줄/색깔 없애기*/
+a{
+    text-decoration-line: none;
+    color: inherit;
+    width: fit-content;
+    height: fit-content;
+}
+
+/* header 맞추기 */
+header{
+    background-color: rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 45px;
+    padding-right: 40px;
+}
+
+.header-nav{
+    display: flex;
+    gap: 30px;
+}
+
+#main-button{
+    font-size: 35px;
+    font-weight: bolder;
+}
+
+.nav-button{
+    font-size: 25px;
+    font-weight: 500;
+
+}
 
 /* body 기본 설정 */
 body {
@@ -9,42 +49,18 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* 홈 아이콘이 포함된 헤더 스타일 */
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
+/* 푸터 스타일 */
+#footer{
+    position: absolute;
+    bottom: 0px;
     width: 100%;
-    height: 80px;
-    background: linear-gradient(135deg, #8994FE  0%, #FEF889 100%);
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
+    text-align: center;
+    background-color: rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
 }
 
-.home-icon {
-    width: 60px;
-    height: 60px;
-    transition: transform 0.3s ease, filter 0.3s ease;
-    border-radius: 8px;
-    filter: brightness(1.1);
-}
-
-.home-icon:hover {
-    transform: scale(1.1);
-    filter: brightness(1.3);
-}
-
-/* 메인 컨텐츠 컨테이너 */
-.container {
-    width: 100vw;
-    min-height: 100vh;
+#copyright{
+    color: white;
     margin: 0;
-    padding: 80px 0 0 0; /* 헤더 높이만큼 상단 패딩 */
-    box-sizing: border-box;
-    background-color: #1d1d1d;
+    font-size: 12px;
 }
-
-/* whoami 페이지 전용 스타일들을 여기에 추가할 수 있습니다 */
