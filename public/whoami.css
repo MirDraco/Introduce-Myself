@@ -1,6 +1,6 @@
 /* whoami.html 전용 스타일 */
 *{
-    font-family: 'Inter', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 /* 모든 링크 밑줄/색깔 없애기*/
 a{
@@ -18,10 +18,12 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    padding-left: 45px;
-    padding-right: 40px;
+    padding: 8px 45px;
+}
+
+.logo-img{
+    width: 55px;
+    height: auto;
 }
 
 .header-nav{
@@ -47,6 +49,36 @@ body {
     background-color: #1d1d1d;
     color: white;
     font-family: Arial, sans-serif;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 60px;
+    gap: 40px;
+}
+
+.profile-left {
+    display: flex;
+    align-items: center;
+}
+
+.profile-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.profile-image{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #FEF889;
 }
 
 /* 푸터 스타일 */
