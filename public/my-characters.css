@@ -1,3 +1,45 @@
+/* header 스타일 (whoami.css에서 복사) */
+header{
+    background-color: rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 45px;
+}
+
+.logo-img{
+    width: 55px;
+    height: auto;
+}
+
+.header-nav{
+    display: flex;
+    gap: 30px;
+}
+
+#main-button{
+    font-size: 35px;
+    font-weight: bolder;
+}
+
+.nav-button{
+    font-size: 25px;
+    font-weight: 500;
+    transition: all 0.1s ease-in-out;
+}
+
+/* 모든 링크 밑줄/색깔 없애기*/
+a{
+    text-decoration-line: none;
+    color: inherit;
+    width: fit-content;
+    height: fit-content;
+}
+.nav-button:hover{
+    font-weight: 600;
+}
 *{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -33,6 +75,8 @@ h1{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 #ruon{
@@ -45,10 +89,14 @@ h1{
 #lai{
     border: 8px solid #C8B8DE;
 }
-
+#ruon:hover { border-color: #00e6e6; box-shadow: 0 0 20px #B2F2F1; }
+#nori:hover { border-color: #ffe066; box-shadow: 0 0 20px #FEF889; }
+#lai:hover  { border-color: #a084ca; box-shadow: 0 0 20px #C8B8DE; }
 .characters-name{
     font-size: 45pt;
     margin-top: 18px;
+    width: 100%;
+    text-align: center;
 }
 /* 푸터 스타일 (index.html/styles.css와 동일하게 추가) */
 #footer{
