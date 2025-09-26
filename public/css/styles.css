@@ -1,6 +1,4 @@
-*{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+/* index.html 전용 스타일 */
 /* body 기본 여백 제거 */
 body {
     margin: 0;
@@ -133,9 +131,10 @@ body {
 }
 
 /* 푸터 스타일 */
-#footer{
-    position: absolute;
-    bottom: 0px;
+#footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
     width: 100%;
     text-align: center;
     background-color: rgba(0,0,0,0.3);

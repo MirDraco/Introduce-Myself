@@ -1,3 +1,4 @@
+/* 공통 스타일 - 모든 페이지에서 사용 */
 *{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -10,7 +11,7 @@ a{
     height: fit-content;
 }
 
-/* header 맞추기 */
+/* header 공통 스타일 */
 header{
     background-color: rgba(0,0,0,0.3);
     backdrop-filter: blur(10px);
@@ -46,13 +47,33 @@ header{
     font-weight: 600;
 }
 
+/* body 기본 설정 */
 body{
     margin: 0;
     padding: 0;
-    background-color: #1d1d1d;     
+    background-color: #1d1d1d;
     color: white;
 }
 
+/* 푸터 공통 스타일 */
+#footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+#copyright{
+    color: white;
+    margin: 0;
+    font-size: 12px;
+}
+
+/* 공통 타이틀 스타일 */
 h1{
     text-align: center;
 }
@@ -61,28 +82,16 @@ h2{
     text-align: center;
 }
 
-.picture-container{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    max-width: 600px;
-    margin: 0 auto;
+/*시트지 관련 css*/
+.sheet-container{
+    display: flex;
+    justify-content: center;
 }
 
-.picture-item {
-    border: 1px solid #ddd; /* 얇은 테두리 */
-    border-radius: 8px; /* 모서리를 둥글게 */
-    overflow: hidden; /* 모서리 밖으로 튀어나온 이미지 숨기기 */
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* 그림자 효과 */
-    transition: transform 0.2s; /* 부드러운 애니메이션 효과 */
-}
-
-.picture-item img{
-    width: 100%;
+.character-sheet{
+    width: 600px;
     height: auto;
-    display: block;
-}
-
-.picture-item:hover{
-    transform: scale(1.05);
+    margin-bottom: 30px;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: high-quality;
 }
