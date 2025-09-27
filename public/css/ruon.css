@@ -5,15 +5,17 @@
 }
 
 .picture-container{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    max-width: 600px;
+    columns: 3;
+    column-gap: 30px;
+    max-width: 1000px;
     margin: 10px auto;
 }
 
 .picture-item {
-    border: 1px solid #ddd; /* 얇은 테두리 */
+    break-inside: avoid;
+    margin-bottom: 30px;
+    display: inline-block;
+    width: 100%;
     border-radius: 8px; /* 모서리를 둥글게 */
     overflow: hidden; /* 모서리 밖으로 튀어나온 이미지 숨기기 */
     box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* 그림자 효과 */
