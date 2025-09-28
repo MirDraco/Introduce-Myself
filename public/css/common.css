@@ -40,13 +40,7 @@ header{
 .nav-button{
     font-size: 25px;
     font-weight: 500;
-    transition: all 0.1s ease-in-out;
 }
-
-.nav-button:hover{
-    font-weight: 600;
-}
-
 /* body 기본 설정 */
 body{
     margin: 0;
