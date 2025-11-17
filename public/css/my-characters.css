@@ -43,3 +43,43 @@
     width: 100%;
     text-align: center;
 }
+
+/* 모바일 반응형 스타일 */
+@media screen and (max-width: 768px) {
+    .my-characters {
+        flex-direction: column;
+        gap: 40px;
+        height: auto;
+        padding: 20px;
+        align-items: center;
+    }
+
+    .img-icon {
+        height: 250px;
+        width: 250px;
+        margin: 20px;
+    }
+
+    .characters-name {
+        font-size: 35pt;
+        margin-top: 12px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .my-characters {
+        gap: 30px;
+        padding: 15px;
+    }
+
+    .img-icon {
+        height: 200px;
+        width: 200px;
+        margin: 15px;
+    }
+
+    .characters-name {
+        font-size: 28pt;
+        margin-top: 10px;
+    }
+}

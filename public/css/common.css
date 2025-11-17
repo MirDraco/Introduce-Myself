@@ -89,3 +89,72 @@ h2{
     image-rendering: -webkit-optimize-contrast;
     image-rendering: high-quality;
 }
+
+/* 모바일 반응형 스타일 */
+@media screen and (max-width: 768px) {
+    /* 헤더 모바일 스타일 */
+    header {
+        flex-direction: column;
+        padding: 15px 20px;
+        gap: 15px;
+    }
+
+    .logo-img {
+        width: 40px;
+    }
+
+    .header-nav {
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+    }
+
+    .nav-button {
+        font-size: 18px;
+    }
+
+    /* 시트지 모바일 스타일 */
+    .character-sheet {
+        width: 90%;
+        max-width: 600px;
+    }
+
+    /* 푸터 모바일 스타일 - 더 작고 덜 거슬리게 */
+    #footer {
+        position: fixed;
+        padding: 6px 0;
+        opacity: 0.7;
+    }
+
+    #copyright {
+        font-size: 9px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    header {
+        padding: 10px 15px;
+    }
+
+    .logo-img {
+        width: 35px;
+    }
+
+    .header-nav {
+        gap: 10px;
+    }
+
+    .nav-button {
+        font-size: 16px;
+    }
+
+    /* 작은 모바일에서 푸터 스타일 */
+    #footer {
+        padding: 5px 0;
+        opacity: 0.6;
+    }
+
+    #copyright {
+        font-size: 8px;
+    }
+}

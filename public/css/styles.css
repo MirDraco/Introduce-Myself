@@ -175,6 +175,11 @@ body {
     color: #cccccc;
 }
 
+.contact-info-item {
+    display: block;
+    margin: 5px 0;
+}
+
 .contact-info a {
     color: #4a9eff;
     text-decoration: none;
@@ -243,4 +248,198 @@ body {
 .btn:active {
     transform: translateY(0);
     box-shadow: 0 2px 4px rgba(74, 158, 255, 0.3);
+}
+
+/* 모바일 반응형 스타일 */
+@media screen and (max-width: 768px) {
+    body {
+        overflow: auto; /* 모바일에서는 스크롤 허용 */
+    }
+
+    .container {
+        padding: 60px 0 50px 0; /* 푸터 공간 확보 */
+        height: auto;
+        min-height: 100vh;
+    }
+
+    /* 모바일에서 slide-down-center 애니메이션의 translateX 제거 */
+    .slide-down-center {
+        animation: slideDown 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    }
+
+    /* 좌우 분할을 세로 스택으로 변경 */
+    #screen-left {
+        width: 100%;
+        float: none;
+        height: auto;
+        min-height: 50vh;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    #screen-right {
+        width: 100%;
+        float: none;
+        height: auto;
+        min-height: 50vh;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    /* 텍스트 컨테이너 모바일 스타일 */
+    .text-container {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        width: 100%;
+        padding: 20px 0;
+    }
+
+    #my-name {
+        font-size: 40px;
+        margin: 10px 0;
+    }
+
+    #my-title {
+        font-size: 24px;
+        margin: 8px 0;
+    }
+
+    #third-row {
+        font-size: 20px;
+        margin: 8px 0;
+    }
+
+    /* 이미지 모바일 스타일 */
+    #my-image {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        max-width: 80%;
+        max-height: none;
+        margin: 20px auto;
+        display: block;
+    }
+
+    /* 버튼 모바일 스타일 */
+    #button-holder {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none !important;
+        margin: 20px auto;
+        text-align: center;
+        width: 100%;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 16px;
+        white-space: nowrap;
+        display: inline-block;
+    }
+
+    /* 소셜 아이콘 모바일 스타일 */
+    .social-icons {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        transform: none !important;
+        margin: 30px auto;
+        gap: 20px;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .social-icons a {
+        font-size: 28px;
+    }
+
+    /* 연락처 정보 모바일 스타일 */
+    .contact-info {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        transform: none !important;
+        margin: 20px auto 40px auto;
+        text-align: center;
+        width: 100%;
+        max-width: 100%;
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+
+    .contact-info p {
+        font-size: 14px;
+        margin: 5px 0;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        white-space: normal;
+        line-height: 1.5;
+    }
+
+    .contact-info-item {
+        display: block;
+        margin: 8px 0;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 50px 0 40px 0;
+    }
+
+    #screen-left,
+    #screen-right {
+        padding: 15px;
+    }
+
+    #my-name {
+        font-size: 32px;
+    }
+
+    #my-title {
+        font-size: 20px;
+    }
+
+    #third-row {
+        font-size: 18px;
+    }
+
+    #my-image {
+        max-width: 90%;
+    }
+
+    .btn {
+        padding: 8px 16px;
+        font-size: 14px;
+        white-space: nowrap;
+    }
+
+    .social-icons {
+        gap: 15px;
+    }
+
+    .social-icons a {
+        font-size: 24px;
+    }
+
+    .contact-info {
+        padding: 0 10px;
+    }
+
+    .contact-info p {
+        font-size: 12px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        line-height: 1.4;
+    }
+
+    .contact-info-item {
+        margin: 6px 0;
+    }
 }
