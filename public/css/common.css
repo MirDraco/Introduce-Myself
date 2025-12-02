@@ -1,10 +1,10 @@
 /* 공통 스타일 - 모든 페이지에서 사용 */
-*{
+* {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* 모든 링크 밑줄/색깔 없애기*/
-a{
+a {
     text-decoration-line: none;
     color: inherit;
     width: fit-content;
@@ -12,8 +12,8 @@ a{
 }
 
 /* header 공통 스타일 */
-header{
-    background-color: rgba(0,0,0,0.3);
+header {
+    background-color: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(10px);
     color: white;
     display: flex;
@@ -22,31 +22,60 @@ header{
     padding: 8px 45px;
 }
 
-.logo-img{
+.logo-img {
     width: 55px;
     height: auto;
 }
 
-.header-nav{
+.header-nav {
     display: flex;
     gap: 30px;
 }
 
-#main-button{
+#main-button {
     font-size: 35px;
     font-weight: bolder;
 }
 
-.nav-button{
+.nav-button {
     font-size: 25px;
     font-weight: 500;
 }
+
+button.nav-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: inherit;
+    font-family: inherit;
+}
+
 /* body 기본 설정 */
-body{
+body {
     margin: 0;
     padding: 0;
     background-color: #1d1d1d;
     color: white;
+    transition: 0.5s;
+}
+
+/* 노리 테마*/
+.nori-theme {
+    background-color: #ffefb1;
+    color: #5D4037;
+}
+
+/* 루온 테마 */
+.ruon-theme {
+    background-color: #E0F2F1;
+    color: darkblue;
+}
+
+/* 라이 테마 */
+.lai-theme {
+    background-color: #FBF4F8;
+    color: #36454F;
 }
 
 /* 푸터 공통 스타일 */
@@ -56,33 +85,33 @@ body{
     bottom: 0;
     width: 100%;
     text-align: center;
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(10px);
     z-index: 1000;
 }
 
-#copyright{
+#copyright {
     color: white;
     margin: 0;
     font-size: 12px;
 }
 
 /* 공통 타이틀 스타일 */
-h1{
+h1 {
     text-align: center;
 }
 
-h2{
+h2 {
     text-align: center;
 }
 
 /*시트지 관련 css*/
-.sheet-container{
+.sheet-container {
     display: flex;
     justify-content: center;
 }
 
-.character-sheet{
+.character-sheet {
     width: 600px;
     height: auto;
     margin-bottom: 30px;
@@ -92,6 +121,7 @@ h2{
 
 /* 모바일 반응형 스타일 */
 @media screen and (max-width: 768px) {
+
     /* 헤더 모바일 스타일 */
     header {
         flex-direction: column;

@@ -38,4 +38,13 @@
 
 ---
 
+
+## 🚀 성능 최적화 (Optimization)
+- [x] **Lazy Loading 적용**: `nori.html` 갤러리 이미지에 적용 완료
+- [ ] **서버 압축(Compression) 적용**: Gzip/Brotli 미들웨어 추가 필요
+- [ ] **이미지 포맷 변환**: PNG -> WebP 변환으로 용량 절감 필요
+- [ ] **이미지 사이즈 명시**: CLS 방지를 위한 width/height 속성 추가 필요
+
+---
+
 > 이 프로젝트는 Mir의 취미와 성장 기록을 담은 개인 웹사이트입니다.
