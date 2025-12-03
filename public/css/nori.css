@@ -1,8 +1,9 @@
 /* nori.html 전용 스타일 */
-#nori{
+#nori {
     border: 8px solid #FEF889;
 }
-.picture-container{
+
+.picture-container {
     columns: 3;
     column-gap: 30px;
     max-width: 1000px;
@@ -14,38 +15,27 @@
     margin-bottom: 30px;
     display: inline-block;
     width: 100%;
-    border-radius: 8px; /* 모서리를 둥글게 */
-    overflow: hidden; /* 모서리 밖으로 튀어나온 이미지 숨기기 */
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* 그림자 효과 */
-    transition: transform 0.2s; /* 부드러운 애니메이션 효과 */
+    border-radius: 8px;
+    /* 모서리를 둥글게 */
+    overflow: hidden;
+    /* 모서리 밖으로 튀어나온 이미지 숨기기 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* 그림자 효과 */
+    transition: transform 0.2s;
+    /* 부드러운 애니메이션 효과 */
 }
 
-.picture-item img{
+.picture-item img {
     width: 100%;
     height: auto;
     display: block;
 }
 
-.picture-item:hover{
+.picture-item:hover {
     transform: scale(1.05);
 }
 
-/* 푸터 스타일 (index.html/styles.css와 동일하게 추가) */
-#footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    background-color: rgba(0,0,0,0.3);
-    backdrop-filter: blur(10px);
-}
 
-#copyright{
-    color: white;
-    margin: 0;
-    font-size: 12px;
-}
 
 /* 모바일 반응형 스타일 */
 @media screen and (max-width: 768px) {
