@@ -13,7 +13,7 @@ a {
 
 /* header 공통 스타일 */
 header {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(10px);
     color: white;
     display: flex;
@@ -187,4 +187,71 @@ h2 {
     #copyright {
         font-size: 8px;
     }
+}
+
+/* --- CSS로 구현하는 테마 스위치 (JS 없음) --- */
+
+/* 노리 페이지에서 체크박스가 켜지면 */
+body:has(#nori-theme-toggle:checked) {
+    background-color: #ffefb1;
+    color: #5D4037;
+}
+/* 노리 테마 헤더 (갈색 톤) */
+body:has(#nori-theme-toggle:checked) header {
+    background-color: rgba(93, 64, 55, 0.8);
+}
+
+/* 라이 페이지에서 체크박스가 켜지면 */
+body:has(#lai-theme-toggle:checked) {
+    background-color: #FBF4F8;
+    color: #36454F;
+}
+/* 라이 테마 헤더 (차콜 톤) */
+body:has(#lai-theme-toggle:checked) header {
+    background-color: rgba(54, 69, 79, 0.8);
+}
+
+/* 루온 페이지에서 체크박스가 켜지면 */
+body:has(#ruon-theme-toggle:checked) {
+    background-color: #E0F2F1;
+    color: darkblue;
+}
+/* 루온 테마 헤더 (다크블루 톤) */
+body:has(#ruon-theme-toggle:checked) header {
+    background-color: rgba(0, 0, 139, 0.7);
+}
+
+/* --- 갤러리 Masonry 레이아웃 (핀터레스트 스타일) --- */
+.picture-container {
+    column-count: 4; /* 기본 4열로 배치 */
+    column-gap: 15px; /* 열 사이 간격 */
+    padding: 20px;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.picture-item {
+    break-inside: avoid; /* 이미지가 열 사이에서 잘리지 않도록 설정 */
+    margin-bottom: 15px; /* 이미지 아래 간격 */
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.picture-item img {
+    width: 100%;
+    height: auto;
+    display: block; /* 이미지 하단 미세한 공백 제거 */
+    transition: transform 0.3s ease;
+}
+
+.picture-item:hover img {
+    transform: scale(1.05); /* 마우스 올리면 살짝 확대 효과 */
+}
+
+/* 반응형: 화면 크기에 따라 열 개수 자동 조절 */
+@media screen and (max-width: 1200px) {
+    .picture-container { column-count: 3; }
+}
+@media screen and (max-width: 768px) {
+    .picture-container { column-count: 2; }
 }

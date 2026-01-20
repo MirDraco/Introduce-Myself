@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>캐릭터 테마 기능 구현 - Mir's Blog</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/blog.css">
+    <link rel="icon" href="../image/nori/icon.PNG" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo"><img src="../image/nori/icon.PNG" class="logo-img"></div>
+        <nav class="header-nav">
+            <a href="../html/index.html" title="home" class="nav-button">Home</a>
+            <a href="../html/my-characters.html" title="my character" class="nav-button">Character</a>
+            <a href="../html/blog.html" title="my blog" class="nav-button">Blog</a>
+            <a href="../html/whoami.html" title="About me" class="nav-button">About</a>
+            <a href="../html/js-test.html" title="js test" class="nav-button">TEST</a>
+        </nav>
+    </header>
+
+    <main class="blog-post-container">
+        <a href="blog.html" class="back-link">← 목록으로 돌아가기</a>
+
+        <article>
+            <div class="post-header">
+                <span class="post-meta">2025.09.25 · Design</span>
+                <h1>캐릭터 테마 기능 구현</h1>
+                <span class="post-meta">By Mir</span>
+            </div>
+
+            <div class="post-body">
+                <p>제 웹사이트의 가장 큰 특징 중 하나는 바로 <strong>캐릭터별 테마 전환</strong> 기능입니다.</p>
+                
+                <h2>퍼스널 컬러의 중요성</h2>
+                <p>Nori는 상큼한 레몬색, Lai는 우아한 연보라색, Ruon은 시원한 민트색을 상징합니다. 단순히 다크 모드만 지원하는 것보다, 각 캐릭터 페이지에 들어갔을 때 그 캐릭터의 분위기를 온전히 느낄 수 있게 하고 싶었습니다.</p>
+
+                <h2>구현 방식</h2>
+                <p>처음에는 자바스크립트로 복잡하게 구현하려 했지만, CSS의 최신 기능인 <code>:has()</code> 선택자를 알게 되었습니다. 덕분에 자바스크립트 없이도 체크박스 하나로 테마를 전환하는 기능을 아주 깔끔하게 만들 수 있었죠.</p>
+                
+                <p>헤더의 <strong>Theme Switch</strong> 버튼을 눌러보세요. 배경색뿐만 아니라 헤더의 색상까지 캐릭터에 맞춰 은은하게 변하는 것을 보실 수 있습니다.</p>
+                
+                <p>여러분이 가장 좋아하는 테마는 무엇인가요?</p>
+            </div>
+        </article>
+    </main>
+
+    <footer id="footer">
+        <p id="copyright">ⓒ 2025 Mir All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masonry 레이아웃 도전기 - Mir's Blog</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/blog.css">
+    <link rel="icon" href="../image/nori/icon.PNG" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo"><img src="../image/nori/icon.PNG" class="logo-img"></div>
+        <nav class="header-nav">
+            <a href="../html/index.html" title="home" class="nav-button">Home</a>
+            <a href="../html/my-characters.html" title="my character" class="nav-button">Character</a>
+            <a href="../html/blog.html" title="my blog" class="nav-button">Blog</a>
+            <a href="../html/whoami.html" title="About me" class="nav-button">About</a>
+            <a href="../html/js-test.html" title="js test" class="nav-button">TEST</a>
+        </nav>
+    </header>
+
+    <main class="blog-post-container">
+        <a href="blog.html" class="back-link">← 목록으로 돌아가기</a>
+
+        <article>
+            <div class="post-header">
+                <span class="post-meta">2025.09.26 · Development</span>
+                <h1>Masonry 레이아웃 도전기</h1>
+                <span class="post-meta">By Mir</span>
+            </div>
+
+            <div class="post-body">
+                <p>안녕하세요, Mir입니다. 오늘은 제 개인 웹사이트 갤러리에 적용한 <strong>Masonry(벽돌 쌓기) 레이아웃</strong> 구현 과정을 공유하려고 합니다.</p>
+                
+                <h2>왜 Masonry인가?</h2>
+                <p>제 캐릭터들의 일러스트는 가로로 긴 그림도 있고, 세로로 긴 그림도 있습니다. 일반적인 격자(Grid) 방식으로 배치하면 사진 크기가 제각각이라 빈 공간이 생겨서 안 예쁘더라고요. 그래서 핀터레스트처럼 빈틈없이 차곡차곡 쌓이는 레이아웃이 필요했습니다.</p>
+
+                <h2>CSS만으로 해결하기</h2>
+                <p>처음에는 자바스크립트 라이브러리를 써야 하나 고민했습니다. 하지만 단순히 보여주기만 하는 건데 무거운 라이브러리를 쓰기 싫었죠. 찾아보니 CSS의 <code>column-count</code> 속성을 활용하면 아주 쉽게 구현할 수 있었습니다.</p>
+
+                <div style="background: #333; padding: 15px; border-radius: 5px; font-family: monospace; margin: 20px 0;">
+                    .picture-container {<br>
+                    &nbsp;&nbsp;column-count: 4;<br>
+                    &nbsp;&nbsp;column-gap: 15px;<br>
+                    }
+                </div>
+
+                <p>이렇게 설정하니 화면 너비에 따라 열 개수도 자동으로 조절되고, 사진들이 아주 예쁘게 정렬되었습니다. 결과물이 궁금하시다면 Character 메뉴에서 확인해보세요!</p>
+            </div>
+        </article>
+    </main>
+
+    <footer id="footer">
+        <p id="copyright">ⓒ 2025 Mir All rights reserved.</p>
+    </footer>
+</body>
+</html>
