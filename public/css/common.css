@@ -51,6 +51,20 @@ button.nav-button {
     font-family: inherit;
 }
 
+/* 로그인/로그아웃 버튼 전용 스타일 */
+#auth-btn {
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 18px; /* 다른 메뉴보다 조금 작게 설정 */
+    transition: all 0.3s ease;
+}
+
+#auth-btn:hover {
+    background-color: white;
+    color: #1d1d1d; /* 배경이 흰색이 되면 글자는 어둡게 */
+}
+
 /* body 기본 설정 */
 body {
     margin: 0;

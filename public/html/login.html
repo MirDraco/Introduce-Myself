@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 - Mir의 개인 페이지</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <style>
+        .login-container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 2rem;
+            background: rgba(220, 220, 220, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            color: #333;
+        }
+        .login-form input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .login-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .login-btn:hover { background-color: #555; }
+        .links {
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+        .links a { color: #333; text-decoration: none; }
+        .links a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="nav-button">🏠 HOME</a>
+        <div class="header-nav">
+            <a id="auth-btn" href="login.html" class="nav-button">로그인</a>
+        </div>
+    </header>
+    <div class="login-container">
+        <h2>로그인</h2>
+        <form id="loginForm" class="login-form">
+            <input type="email" id="email" placeholder="이메일" required>
+            <input type="password" id="password" placeholder="비밀번호" required>
+            <button type="submit" class="login-btn">로그인하기</button>
+        </form>
+        <p id="errorMessage" style="color: red; margin-top: 10px;"></p>
+        <div class="links">
+            <a href="signup.html">계정이 없으신가요? 회원가입</a>
+        </div>
+    </div>
+
+    <!-- Firebase SDK 및 로직은 js/auth.js에서 로드 -->
+    <script type="module" src="../js/auth.js"></script>
+</body>
+</html>
