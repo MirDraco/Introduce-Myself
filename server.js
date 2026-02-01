@@ -5,6 +5,7 @@ const port = 3000;
 
 app.use(compression()); // 데이터 압축 미들웨어 적용
 app.use(express.static('public'));
+app.use(express.static('public/html', { extensions: ['html'] })); // .html 확장자 생략 가능하게 설정
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/html/index.html');

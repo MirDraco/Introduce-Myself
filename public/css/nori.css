@@ -62,3 +62,19 @@
         margin-bottom: 10px;
     }
 }
+
+/* 레몬 파티클 효과 */
+.lemon-particle {
+    position: fixed;
+    top: -50px;
+    z-index: -1; /* 콘텐츠 뒤로 배치 */
+    user-select: none; /* 드래그 방지 */
+    pointer-events: none; /* 클릭 통과 */
+    animation: fallRotate linear forwards;
+}
+
+@keyframes fallRotate {
+    to {
+        transform: translateY(110vh) rotate(720deg); /* 아래로 떨어지면서 2바퀴 회전 */
+    }
+}

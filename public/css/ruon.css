@@ -63,3 +63,22 @@
         margin-bottom: 10px;
     }
 }
+
+/* 비눗방울 파티클 효과 */
+.bubble-particle {
+    position: fixed;
+    bottom: -50px;
+    z-index: -1;
+    user-select: none;
+    pointer-events: none;
+    opacity: 0.7;
+    animation: riseSway linear forwards;
+}
+
+@keyframes riseSway {
+    0% { transform: translateY(0) translateX(0); }
+    25% { transform: translateY(-25vh) translateX(20px); }
+    50% { transform: translateY(-50vh) translateX(-20px); }
+    75% { transform: translateY(-75vh) translateX(20px); }
+    100% { transform: translateY(-110vh) translateX(0); }
+}

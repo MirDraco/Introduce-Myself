@@ -255,3 +255,51 @@ body:has(#ruon-theme-toggle:checked) header {
 @media screen and (max-width: 768px) {
     .picture-container { column-count: 2; }
 }
+
+/* --- 배경 파티클 효과 (공통) --- */
+
+/* 1. 레몬 (Nori) */
+.lemon-particle {
+    position: fixed;
+    top: -100px;
+    z-index: -1;
+    user-select: none;
+    pointer-events: none;
+    animation: fallRotate linear forwards;
+}
+@keyframes fallRotate {
+    to { transform: translateY(110vh) rotate(720deg); }
+}
+
+/* 2. 비눗방울 (Ruon) */
+.bubble-particle {
+    position: fixed;
+    bottom: -100px;
+    z-index: -1;
+    user-select: none;
+    pointer-events: none;
+    opacity: 0.7;
+    animation: riseSway linear forwards;
+}
+@keyframes riseSway {
+    0% { transform: translateY(0) translateX(0); }
+    25% { transform: translateY(-25vh) translateX(20px); }
+    50% { transform: translateY(-50vh) translateX(-20px); }
+    75% { transform: translateY(-75vh) translateX(20px); }
+    100% { transform: translateY(-110vh) translateX(0); }
+}
+
+/* 3. 꽃잎 (Lai) */
+.petal-particle {
+    position: fixed;
+    top: -100px;
+    z-index: -1;
+    user-select: none;
+    pointer-events: none;
+    animation: fallSway linear forwards;
+}
+@keyframes fallSway {
+    0% { transform: translateY(0) rotate(0deg) translateX(0); }
+    50% { transform: translateY(50vh) rotate(90deg) translateX(-30px); }
+    100% { transform: translateY(110vh) rotate(180deg) translateX(0); }
+}

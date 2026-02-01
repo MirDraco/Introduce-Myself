@@ -63,3 +63,21 @@
         margin-bottom: 10px;
     }
 }
+
+/* 꽃잎 파티클 효과 */
+.petal-particle {
+    position: fixed;
+    top: -50px;
+    z-index: -1;
+    user-select: none;
+    pointer-events: none;
+    animation: fallSway linear forwards;
+}
+
+@keyframes fallSway {
+    0% { transform: translateY(0) rotate(0deg) translateX(0); }
+    25% { transform: translateY(25vh) rotate(45deg) translateX(30px); }
+    50% { transform: translateY(50vh) rotate(90deg) translateX(-30px); }
+    75% { transform: translateY(75vh) rotate(135deg) translateX(30px); }
+    100% { transform: translateY(110vh) rotate(180deg) translateX(0); }
+}
