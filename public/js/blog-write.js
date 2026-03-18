@@ -13,7 +13,6 @@ import {
   uploadBytesResumable,
   getDownloadURL,
 } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-storage.js";
-import { imageCompression } from "https://www.npmjs.com/package/image-compression";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBwPmTcn27A7KAkU7Cwe0xqIrJHZKPbLWU",
@@ -30,49 +29,80 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 const storage = getStorage(app);
 
-// 권한 체크 (여기서는 임시로 로그인되어 있고 권한이 있는지 확인 구조만 잡습니다)
-let currentUserInfo = null;
-
-onAuthStateChanged(auth, async (user) => {
-  if (user) {
-    try {
-      const userDoc = await getDoc(doc(db, "users", user.uid));
-      if (userDoc.exists()) {
-        currentUserInfo = userDoc.data();
-        // admin 권한이 아니라면 막을 수 있음
-        // if(currentUserInfo.role !== 'admin') { ... }
-      }
-    } catch (e) {
-      console.log("Error fetching user data", e);
-    }
-  } else {
-    alert("로그인이 필요합니다.");
-    window.location.href = "/login";
-  }
-});
-
 const form = document.getElementById("blog-write-form");
 const submitBtn = document.getElementById("submit-btn");
 const fileInput = document.getElementById("post-image");
 const fileNameDisplay = document.getElementById("file-name-display");
+const authStatus = document.getElementById("auth-status");
+
+let currentUser = null;
+let currentUserInfo = null;
+let authReady = false;
+
+function setWriteAccess(enabled) {
+  const controls = form.querySelectorAll("input, textarea, button");
+  controls.forEach((control) => {
+    control.disabled = !enabled;
+  });
+}
+
+function setAuthStatus(message, state = "checking") {
+  if (!authStatus) return;
+  authStatus.textContent = message;
+  authStatus.dataset.state = state;
+}
+
+setWriteAccess(false);
+setAuthStatus("로그인 상태 확인 중...");
+
+onAuthStateChanged(auth, async (user) => {
+  authReady = true;
+
+  if (!user) {
+    currentUser = null;
+    currentUserInfo = null;
+    setWriteAccess(false);
+    setAuthStatus("로그인이 필요합니다. 잠시 후 로그인 페이지로 이동합니다.", "required");
+
+    window.setTimeout(() => {
+      window.location.replace("/login");
+    }, 1200);
+    return;
+  }
+
+  currentUser = user;
+
+  try {
+    const userDoc = await getDoc(doc(db, "users", user.uid));
+    currentUserInfo = userDoc.exists() ? userDoc.data() : {};
+  } catch (e) {
+    console.log("Error fetching user data", e);
+    currentUserInfo = {};
+  }
+
+  const displayName = currentUserInfo.nickname || user.email || "사용자";
+  setAuthStatus(`${displayName}님 로그인됨. 글 작성이 가능합니다.`, "ok");
+  setWriteAccess(true);
+});
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
+  if (!authReady || !currentUser) {
+    alert("로그인한 사용자만 글을 등록할 수 있습니다.");
+    return;
+  }
+
   const title = document.getElementById("post-title").value;
   const content = document.getElementById("post-content").value;
   const file = fileInput.files[0];
-
-  if (!currentUserInfo) {
-    alert("사용자 정보를 불러오는 중이거나 권한이 없습니다.");
-    return;
-  }
 
   submitBtn.disabled = true;
   submitBtn.textContent = "작업 진행 중...";
 
   try {
     let imageUrl = null;
+    let imagePath = null;
 
     // 이미지가 첨부된 경우
     if (file) {
@@ -85,19 +115,23 @@ form.addEventListener("submit", async (e) => {
         useWebWorker: true,
       };
 
+      let uploadFile = file;
+
       try {
-        // 이미지를 압축된 파일로 변환 (압축 라이브러리 사용)
-        file = await imageCompression(file, options);
+        // UMD 전역 함수가 있으면 압축하고, 없으면 원본 파일을 그대로 사용
+        if (window.imageCompression) {
+          uploadFile = await window.imageCompression(file, options);
+        }
       } catch (error) {
         console.warn("이미지 압축 실패, 원본 이미지로 진행합니다.", error);
       }
 
       submitBtn.textContent = "업로드 중...";
 
-      // 압축된 'file'을 Firebase Storage에 업로드
-      const pathString = `blog_images/${Date.now()}_${file.name}`;
-      const FileRef = ref(storage, pathString);
-      const uploadTask = await uploadBytesResumable(FileRef, file);
+      // 압축된 파일(또는 원본 파일)을 Firebase Storage에 업로드
+      imagePath = `blog_images/${Date.now()}_${uploadFile.name}`;
+      const fileRef = ref(storage, imagePath);
+      const uploadTask = await uploadBytesResumable(fileRef, uploadFile);
       imageUrl = await getDownloadURL(uploadTask.ref);
     }
 
@@ -106,9 +140,9 @@ form.addEventListener("submit", async (e) => {
       title: title,
       content: content,
       imageUrl: imageUrl, // 이미지가 없으면 null
-      imagePath: pathString, // <--- 이 부분을 추가하여 Storage 파일 경로 저장
-      author: currentUserInfo.nickname || currentUserInfo.email,
-      authorId: auth.currentUser.uid,
+      imagePath: imagePath, // Storage 파일 경로 저장
+      author: currentUserInfo.nickname || currentUser.email,
+      authorId: currentUser.uid,
       createdAt: new Date(),
     };
 

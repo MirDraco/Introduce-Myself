@@ -37,7 +37,7 @@ if (loginForm) {
                 // 로그인 성공
                 const user = userCredential.user;
                 alert(user.email + '님 환영합니다!');
-                window.location.href = '../index.html'; // 메인 페이지로 이동
+                window.location.href = "/"; // 메인 페이지로 이동
             })
             .catch((error) => {
                 // 로그인 실패
@@ -86,7 +86,7 @@ if (signupForm) {
                     alert("가입은 되었으나 프로필 저장에 실패했습니다.\n원인: " + error.message);
                 }
                 
-                window.location.href = '../index.html'; // 메인 페이지로 이동
+                window.location.href = "/"; // 메인 페이지로 이동
             })
             .catch((error) => {
                 const errorCode = error.code;

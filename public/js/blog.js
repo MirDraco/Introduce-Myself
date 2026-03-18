@@ -68,7 +68,7 @@ async function loadPosts() {
             <span class="post-date">${dateStr}</span>
             <h2 class="post-title">${post.title}</h2>
             <p class="post-excerpt">${summary}</p>
-            <a href="/html/blog-post.html?id=${doc.id}" class="read-more">더 읽기 →</a>
+            <a href="/blog-post?id=${doc.id}" class="read-more">더 읽기 →</a>
           </div>
         </article>
       `;

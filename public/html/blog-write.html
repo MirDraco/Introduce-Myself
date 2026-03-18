@@ -77,6 +77,23 @@
         color: #aaa; /* 파일 이름 표시 색상 */
         font-size: 0.9rem;
       }
+      .auth-status {
+        margin: 0 0 1.2rem;
+        padding: 0.7rem 0.9rem;
+        border-radius: 6px;
+        font-size: 0.95rem;
+        background: #1f1f1f;
+        border: 1px solid #444;
+        color: #d7d7d7;
+      }
+      .auth-status[data-state="ok"] {
+        border-color: #2e7d32;
+        color: #c8e6c9;
+      }
+      .auth-status[data-state="required"] {
+        border-color: #c62828;
+        color: #ffcdd2;
+      }
     </style>
   </head>
   <body>
@@ -87,30 +104,33 @@
         <a href="/my-characters" title="my character" class="nav-button">Character</a>
         <a href="/blog" title="my blog" class="nav-button">Blog</a>
         <a href="/whoami" title="About me" class="nav-button">About</a>
-        <a id="auth-btn" href="login.html" class="nav-button">로그인</a>
+        <a id="auth-btn" href="login" class="nav-button">로그인</a>
       </nav>
     </header>
 
     <main class="write-container">
       <h1 class="blog-title">새 글 작성</h1>
+      <p id="auth-status" class="auth-status" data-state="checking" role="status" aria-live="polite">
+        로그인 상태 확인 중...
+      </p>
       <form id="blog-write-form">
         <div class="form-group">
           <label for="post-title">제목</label>
-          <input type="text" id="post-title" required placeholder="글 제목을 입력하세요" />
+          <input type="text" id="post-title" required placeholder="글 제목을 입력하세요" disabled />
         </div>
         <div class="form-group">
           <label for="post-image">대표 이미지 첨부</label>
           <div class="file-input-wrapper">
             <label for="post-image" class="file-upload-btn">사진 선택</label>
-            <input type="file" id="post-image" accept="image/*" style="display: none" />
+            <input type="file" id="post-image" accept="image/*" style="display: none" disabled />
             <span id="file-name-display" class="file-name-display">선택된 파일 없음</span>
           </div>
         </div>
         <div class="form-group">
           <label for="post-content">내용</label>
-          <textarea id="post-content" required placeholder="본문을 입력하세요"></textarea>
+          <textarea id="post-content" required placeholder="본문을 입력하세요" disabled></textarea>
         </div>
-        <button type="submit" class="btn-submit" id="submit-btn">글 등록하기</button>
+        <button type="submit" class="btn-submit" id="submit-btn" disabled>글 등록하기</button>
       </form>
     </main>
 

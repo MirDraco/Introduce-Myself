@@ -1,0 +1,14 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run fix2",
+			"type": "shell",
+			"command": "node",
+			"args": [
+				"fix2.js"
+			],
+			"isBackground": false
+		}
+	]
+}
