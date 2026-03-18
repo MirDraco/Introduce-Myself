@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>블로그 글쓰기 - Mir's Blog</title>
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/blog.css" />
+    <link rel="icon" href="../image/nori/icon.PNG" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+      .write-container {
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+      }
+      .form-group input[type="text"],
+      .form-group textarea {
+        width: 100%;
+        padding: 0.8rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+      }
+      .form-group textarea {
+        min-height: 300px;
+        resize: vertical;
+      }
+      .btn-submit {
+        background-color: #333;
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+      }
+      .btn-submit:hover {
+        background-color: #555;
+      }
+      .file-input-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .file-upload-btn {
+        background-color: #eee;
+        padding: 0.6rem 1rem;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        cursor: pointer;
+        font-size: 0.9rem;
+      }
+      .file-upload-btn:hover {
+        background-color: #ddd;
+      }
+      .file-name-display {
+        color: #666;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo"><img src="../image/nori/icon.PNG" class="logo-img" /></div>
+      <nav class="header-nav">
+        <a href="/" title="home" class="nav-button">Home</a>
+        <a href="/my-characters" title="my character" class="nav-button">Character</a>
+        <a href="/blog" title="my blog" class="nav-button">Blog</a>
+        <a href="/whoami" title="About me" class="nav-button">About</a>
+        <a id="auth-btn" href="login.html" class="nav-button">로그인</a>
+      </nav>
+    </header>
+
+    <main class="write-container">
+      <h1 class="blog-title">새 글 작성</h1>
+      <form id="blog-write-form">
+        <div class="form-group">
+          <label for="post-title">제목</label>
+          <input type="text" id="post-title" required placeholder="글 제목을 입력하세요" />
+        </div>
+        <div class="form-group">
+          <label for="post-image">대표 이미지 첨부</label>
+          <div class="file-input-wrapper">
+            <label for="post-image" class="file-upload-btn">사진 선택</label>
+            <input type="file" id="post-image" accept="image/*" style="display: none" />
+            <span id="file-name-display" class="file-name-display">선택된 파일 없음</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="post-content">내용</label>
+          <textarea id="post-content" required placeholder="본문을 입력하세요"></textarea>
+        </div>
+        <button type="submit" class="btn-submit" id="submit-btn">글 등록하기</button>
+      </form>
+    </main>
+
+    <footer id="footer">
+      <p id="copyright">ⓒ 2025 Mir All rights reserved.</p>
+    </footer>
+
+    <!-- 파일 크기를 줄여주는 압축 라이브러리 추가 -->
+    <script src="https://cdn.jsdelivr.net/npm/browser-image-compression@2.0.2/dist/browser-image-compression.umd.js"></script>
+
+    <!-- 기존 Firebase 설정 및 글쓰기 로직 모듈 -->
+    <script type="module" src="../js/blog-write.js"></script>
+  </body>
+</html>
