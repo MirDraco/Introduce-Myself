@@ -55,6 +55,13 @@ function setAuthStatus(message, state = "checking") {
 setWriteAccess(false);
 setAuthStatus("로그인 상태 확인 중...");
 
+// 인증 콜백이 오지 않는 경우에도 무한 대기처럼 보이지 않도록 상태를 갱신
+window.setTimeout(() => {
+  if (!authReady) {
+    setAuthStatus("로그인 상태 확인이 지연되고 있습니다. 새로고침 후 다시 시도해 주세요.", "required");
+  }
+}, 5000);
+
 onAuthStateChanged(auth, async (user) => {
   authReady = true;
 
@@ -71,18 +78,27 @@ onAuthStateChanged(auth, async (user) => {
   }
 
   currentUser = user;
+  currentUserInfo = { email: user.email || "" };
+
+  // 로그인 확인 즉시 글쓰기 기능을 열고, 상세 프로필은 뒤에서 보강
+  const initialDisplayName = user.email || "사용자";
+  setAuthStatus(`${initialDisplayName} 계정으로 로그인되어 있습니다. 글 작성이 가능합니다.`, "ok");
+  setWriteAccess(true);
 
   try {
-    const userDoc = await getDoc(doc(db, "users", user.uid));
-    currentUserInfo = userDoc.exists() ? userDoc.data() : {};
+    const userDoc = await Promise.race([
+      getDoc(doc(db, "users", user.uid)),
+      new Promise((_, reject) => window.setTimeout(() => reject(new Error("profile-timeout")), 2500)),
+    ]);
+
+    if (userDoc.exists()) {
+      currentUserInfo = userDoc.data();
+      const displayName = currentUserInfo.nickname || user.email || "사용자";
+      setAuthStatus(`${displayName}님 로그인됨. 글 작성이 가능합니다.`, "ok");
+    }
   } catch (e) {
     console.log("Error fetching user data", e);
-    currentUserInfo = {};
   }
-
-  const displayName = currentUserInfo.nickname || user.email || "사용자";
-  setAuthStatus(`${displayName}님 로그인됨. 글 작성이 가능합니다.`, "ok");
-  setWriteAccess(true);
 });
 
 form.addEventListener("submit", async (e) => {
