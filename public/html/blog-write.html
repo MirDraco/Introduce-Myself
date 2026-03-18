@@ -13,9 +13,10 @@
         max-width: 800px;
         margin: 2rem auto;
         padding: 2rem;
-        background: #fff;
+        background: #2c2c2c; /* 다크 테마 배경 */
         border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+        color: #fff; /* 글자색을 흰색으로 */
       }
       .form-group {
         margin-bottom: 1.5rem;
@@ -29,16 +30,22 @@
       .form-group textarea {
         width: 100%;
         padding: 0.8rem;
-        border: 1px solid #ddd;
+        border: 1px solid #555;
+        background-color: #1a1a1a; /* 입력창 배경 어둡게 */
+        color: #fff; /* 입력창 글자 흰색 */
         border-radius: 5px;
         font-size: 1rem;
+      }
+      .form-group input[type="text"]::placeholder,
+      .form-group textarea::placeholder {
+        color: #888; /* 플레이스홀더 색상 조정 */
       }
       .form-group textarea {
         min-height: 300px;
         resize: vertical;
       }
       .btn-submit {
-        background-color: #333;
+        background-color: #555; /* 버튼 색상 */
         color: white;
         padding: 0.8rem 1.5rem;
         border: none;
@@ -47,7 +54,7 @@
         font-size: 1rem;
       }
       .btn-submit:hover {
-        background-color: #555;
+        background-color: #777;
       }
       .file-input-wrapper {
         display: flex;
@@ -55,18 +62,19 @@
         gap: 10px;
       }
       .file-upload-btn {
-        background-color: #eee;
+        background-color: #444; /* 파일 버튼 배경 */
+        color: #fff;
         padding: 0.6rem 1rem;
         border-radius: 5px;
-        border: 1px solid #ccc;
+        border: 1px solid #555;
         cursor: pointer;
         font-size: 0.9rem;
       }
       .file-upload-btn:hover {
-        background-color: #ddd;
+        background-color: #666;
       }
       .file-name-display {
-        color: #666;
+        color: #aaa; /* 파일 이름 표시 색상 */
         font-size: 0.9rem;
       }
     </style>
