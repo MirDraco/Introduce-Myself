@@ -1,7 +1,7 @@
 const express = require('express');
 const compression = require('compression');
 const app = express();
-const port = 3000;
+const port = 5000;
 
 app.use(compression()); // 데이터 압축 미들웨어 적용
 app.use(express.static('public'));
